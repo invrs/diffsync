@@ -1,4 +1,5 @@
-var assign        = require('lodash.assign'),
+var util          = require('util'),
+    assign        = require('lodash.assign'),
     bind          = require('lodash.bind'),
     isEmpty       = require('lodash.isempty'),
     EventEmitter  = require('events').EventEmitter,
@@ -48,7 +49,7 @@ Client = function(socket, room, diffOptions){
 };
 
 // inherit from EventEmitter
-Client.prototype = new EventEmitter();
+util.inherits(Client, EventEmitter);
 
 /**
  * Get the data
